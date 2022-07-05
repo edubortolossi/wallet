@@ -1,0 +1,23 @@
+server:
+  port: 8080
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/wallet
+  kafka:
+    bootstrap-servers: localhost:9092
+    listener:
+      missing-topics-fatal: false
+    consumer:
+      group-id: wallet
+      bootstrapServers: ${spring.kafka.bootstrap-servers}
+      enableAutoCommit: true
+    producer:
+      bootstrap-servers: ${spring.kafka.bootstrap-servers}
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    topics:
+      transferValueBroadcast: challenge.wallet.transfer.input
+      depositValueBroadcast: challenge.wallet.deposit.input
+      paymentBroadcast: challenge.wallet.payment.input
+      historyBroadcast: challenge.wallet.history.input
