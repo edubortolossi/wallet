@@ -2,11 +2,8 @@ package com.challenge.wallet.gateways.inputs.kafka;
 
 
 import com.challenge.wallet.configurations.kafka.TopicProperties;
-import com.challenge.wallet.domains.History;
 import com.challenge.wallet.gateways.inputs.kafka.resources.HistoryResource;
-import com.challenge.wallet.gateways.inputs.kafka.resources.TransferValueResource;
-import com.challenge.wallet.usecases.ProcessHistory;
-import com.challenge.wallet.usecases.TransferValueAccount;
+import com.challenge.wallet.usecases.ProcessHistoric;
 import com.challenge.wallet.utils.JsonUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +20,7 @@ public class BroadcastHistoryListener {
 
   private final TopicProperties topicProperties;
   private final JsonUtils jsonUtils;
-  private final ProcessHistory processHistory;
+  private final ProcessHistoric processHistoric;
 
   @KafkaListener(
       topics = "${spring.kafka.topics.historyBroadcast}",
@@ -42,7 +39,7 @@ public class BroadcastHistoryListener {
         message);
     try {
       final var resource = jsonUtils.toObject(message, HistoryResource.class);
-      processHistory.execute(resource.toDomain());
+      processHistoric.execute(resource.toDomain());
     } catch (final Exception ex) {
       log.error(
           "Kafka Listener {} has failed for message {}.",

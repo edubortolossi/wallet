@@ -2,17 +2,16 @@ package com.challenge.wallet.usecases;
 
 import com.challenge.wallet.domains.History;
 import com.challenge.wallet.gateways.HistoricDataGateway;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class FindAllHistoric {
+public class ProcessHistoric {
 
   private final HistoricDataGateway historicDataGateway;
 
-  public List<History> execute() {
-    return historicDataGateway.findAll();
+  public void execute(final History history) {
+    historicDataGateway.save(history.getCpf(), history.getAccountNumber(), history.getPayload(), history.getOperation());
   }
 }

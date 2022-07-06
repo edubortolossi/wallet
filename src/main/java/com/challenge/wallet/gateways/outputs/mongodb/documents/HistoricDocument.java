@@ -11,8 +11,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @NoArgsConstructor
-@Document("history")
-public class HistoryDocument {
+@Document("historic")
+public class HistoricDocument {
 
   @Id
   private String id;
@@ -31,7 +31,7 @@ public class HistoryDocument {
   @LastModifiedDate
   private LocalDateTime lastModifiedDate;
 
-  public HistoryDocument(String cpf, String accountNumber, String payload, String operation) {
+  public HistoricDocument(String cpf, String accountNumber, String payload, String operation) {
     this.cpf = cpf;
     this.accountNumber = accountNumber;
     this.payload = payload;
