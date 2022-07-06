@@ -1,7 +1,7 @@
 package com.challenge.wallet.usecases;
 
 import com.challenge.wallet.domains.Account;
-import com.challenge.wallet.domains.History;
+import com.challenge.wallet.domains.Historic;
 import com.challenge.wallet.domains.TransferValue;
 import com.challenge.wallet.enums.Operations;
 import com.challenge.wallet.exceptions.BusinessException;
@@ -33,7 +33,7 @@ public class TransferValueAccount {
     accountDataGateway.save(accountFrom);
     accountDataGateway.save(accountTo);
 
-    publishHistoryMessage.execute(History.builder()
+    publishHistoryMessage.execute(Historic.builder()
         .cpf(accountFrom.getCpf())
         .accountNumber(accountFrom.getAccountNumber())
         .payload(jsonUtils.toJson(transferValue))

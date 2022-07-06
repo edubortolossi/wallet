@@ -1,7 +1,7 @@
 package com.challenge.wallet.usecases;
 
 import com.challenge.wallet.domains.Account;
-import com.challenge.wallet.domains.History;
+import com.challenge.wallet.domains.Historic;
 import com.challenge.wallet.domains.Payment;
 import com.challenge.wallet.enums.Operations;
 import com.challenge.wallet.exceptions.BusinessException;
@@ -27,7 +27,7 @@ public class BillsPayment {
     sumValueToAccount(payment, accountToDeposit);
     accountDataGateway.save(accountToDeposit);
 
-    publishHistoryMessage.execute(History.builder()
+    publishHistoryMessage.execute(Historic.builder()
         .cpf(payment.getCpf())
         .accountNumber(payment.getAccountNumber())
         .payload(jsonUtils.toJson(payment))

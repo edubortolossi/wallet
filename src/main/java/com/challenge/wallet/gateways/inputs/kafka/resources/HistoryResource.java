@@ -1,7 +1,6 @@
 package com.challenge.wallet.gateways.inputs.kafka.resources;
 
-import com.challenge.wallet.domains.History;
-import com.challenge.wallet.domains.TransferValue;
+import com.challenge.wallet.domains.Historic;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,8 +16,8 @@ public class HistoryResource {
   private String payload;
   private String operation;
 
-  public History toDomain() {
-    return History.builder()
+  public Historic toDomain() {
+    return Historic.builder()
         .cpf(cpf)
         .accountNumber(accountNumber)
         .payload(payload)

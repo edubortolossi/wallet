@@ -1,7 +1,7 @@
 package com.challenge.wallet.usecases;
 
 import com.challenge.wallet.domains.Account;
-import com.challenge.wallet.domains.History;
+import com.challenge.wallet.domains.Historic;
 import com.challenge.wallet.enums.Operations;
 import com.challenge.wallet.exceptions.BusinessException;
 import com.challenge.wallet.exceptions.NotFoundException;
@@ -25,7 +25,7 @@ public class WithdrawValue {
     var accountToWithdraw = getAccount(account.getCpf(), account.getAccountNumber());
     subtractValueToAccount(account, accountToWithdraw);
 
-    publishHistoryMessage.execute(History.builder()
+    publishHistoryMessage.execute(Historic.builder()
         .cpf(account.getCpf())
         .accountNumber(account.getAccountNumber())
         .payload(jsonUtils.toJson(account))

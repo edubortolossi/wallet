@@ -1,6 +1,6 @@
 package com.challenge.wallet.gateways.outputs.mongodb.documents;
 
-import com.challenge.wallet.domains.History;
+import com.challenge.wallet.domains.Historic;
 import java.time.LocalDateTime;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -38,8 +38,8 @@ public class HistoricDocument {
     this.operation = operation;
   }
 
-  public History toDomain() {
-    return History.builder()
+  public Historic toDomain() {
+    return Historic.builder()
         .accountNumber(accountNumber)
         .cpf(cpf)
         .operation(operation)

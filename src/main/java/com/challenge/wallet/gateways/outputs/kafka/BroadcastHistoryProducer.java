@@ -1,8 +1,7 @@
 package com.challenge.wallet.gateways.outputs.kafka;
 
 import com.challenge.wallet.configurations.kafka.TopicProperties;
-import com.challenge.wallet.domains.History;
-import com.challenge.wallet.domains.TransferValue;
+import com.challenge.wallet.domains.Historic;
 import com.challenge.wallet.utils.JsonUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,10 +20,10 @@ public class BroadcastHistoryProducer {
   private final TopicProperties topicProperties;
   private final JsonUtils jsonUtils;
 
-  public void send(final History history) {
-    final var message = jsonUtils.toJson(history);
+  public void send(final Historic historic) {
+    final var message = jsonUtils.toJson(historic);
     final var topic = topicProperties.getHistoryBroadcast();
-    final var partitionKey = history.getCpf()+"_"+history.getAccountNumber();
+    final var partitionKey = historic.getCpf()+"_"+ historic.getAccountNumber();
 
     kafkaTemplate
         .send(topic, partitionKey, message)

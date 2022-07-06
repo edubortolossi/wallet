@@ -1,6 +1,6 @@
 package com.challenge.wallet.usecases;
 
-import com.challenge.wallet.domains.History;
+import com.challenge.wallet.domains.Historic;
 import com.challenge.wallet.gateways.HistoricDataGateway;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +12,7 @@ public class FindAllHistoric {
 
   private final HistoricDataGateway historicDataGateway;
 
-  public List<History> execute() {
+  public List<Historic> execute() {
     return historicDataGateway.findAll();
   }
 }

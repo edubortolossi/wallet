@@ -1,6 +1,6 @@
 package com.challenge.wallet.gateways.outputs.mongodb;
 
-import com.challenge.wallet.domains.History;
+import com.challenge.wallet.domains.Historic;
 import com.challenge.wallet.gateways.HistoricDataGateway;
 import com.challenge.wallet.gateways.outputs.mongodb.documents.HistoricDocument;
 import com.challenge.wallet.gateways.outputs.mongodb.repositories.HistoricRepository;
@@ -23,8 +23,13 @@ public class HistoricDataGatewayMongoImpl implements HistoricDataGateway {
   }
 
   @Override
-  public List<History> findAll() {
+  public List<Historic> findAll() {
     return historicRepository.findAll().stream()
         .map(HistoricDocument::toDomain).collect(Collectors.toList());
+  }
+
+  @Override
+  public List<Historic> findByCpfAndAccountNumber(String cpf, String accountNumber) {
+    return historicRepository.findByCpfAndAccountNumber(cpf, accountNumber);
   }
 }

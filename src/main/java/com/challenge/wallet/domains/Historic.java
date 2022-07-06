@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class History {
+public class Historic {
   private String cpf;
   private String accountNumber;
   private String payload;

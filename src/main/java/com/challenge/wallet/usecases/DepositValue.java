@@ -1,7 +1,7 @@
 package com.challenge.wallet.usecases;
 
 import com.challenge.wallet.domains.Account;
-import com.challenge.wallet.domains.History;
+import com.challenge.wallet.domains.Historic;
 import com.challenge.wallet.enums.Operations;
 import com.challenge.wallet.exceptions.NotFoundException;
 import com.challenge.wallet.gateways.AccountDataGateway;
@@ -26,7 +26,7 @@ public class DepositValue {
 
     accountDataGateway.save(accountToDeposit);
 
-    publishHistoryMessage.execute(History.builder()
+    publishHistoryMessage.execute(Historic.builder()
         .cpf(account.getCpf())
         .accountNumber(account.getAccountNumber())
         .payload(jsonUtils.toJson(account))

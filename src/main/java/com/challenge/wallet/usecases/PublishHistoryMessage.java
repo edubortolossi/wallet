@@ -1,6 +1,6 @@
 package com.challenge.wallet.usecases;
 
-import com.challenge.wallet.domains.History;
+import com.challenge.wallet.domains.Historic;
 import com.challenge.wallet.gateways.outputs.kafka.BroadcastHistoryProducer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -11,7 +11,7 @@ public class PublishHistoryMessage {
 
   private final BroadcastHistoryProducer broadcastHistoryProducer;
 
-  public void execute( final History history) {
-    broadcastHistoryProducer.send(history);
+  public void execute( final Historic historic) {
+    broadcastHistoryProducer.send(historic);
   }
 }
