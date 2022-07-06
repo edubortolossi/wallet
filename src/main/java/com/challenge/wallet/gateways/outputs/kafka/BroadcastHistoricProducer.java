@@ -14,7 +14,7 @@ import org.springframework.util.concurrent.SuccessCallback;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class BroadcastHistoryProducer {
+public class BroadcastHistoricProducer {
 
   private final KafkaTemplate<String, String> kafkaTemplate;
   private final TopicProperties topicProperties;

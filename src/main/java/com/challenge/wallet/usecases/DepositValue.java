@@ -16,7 +16,7 @@ public class DepositValue {
 
   private final AccountDataGateway accountDataGateway;
 
-  private final PublishHistoryMessage publishHistoryMessage;
+  private final PublishHistoricMessage publishHistoricMessage;
 
   private final JsonUtils jsonUtils;
 
@@ -26,7 +26,7 @@ public class DepositValue {
 
     accountDataGateway.save(accountToDeposit);
 
-    publishHistoryMessage.execute(Historic.builder()
+    publishHistoricMessage.execute(Historic.builder()
         .cpf(account.getCpf())
         .accountNumber(account.getAccountNumber())
         .payload(jsonUtils.toJson(account))
@@ -42,7 +42,7 @@ public class DepositValue {
     }
   }
 
-  private void sumValueToAccount(Account account, Account accountToWithdraw) {
-    accountToWithdraw.setValue(accountToWithdraw.getValue() + account.getValue());
+  private void sumValueToAccount(Account account, Account accountToDeposit) {
+    accountToDeposit.setValue(accountToDeposit.getValue() + account.getValue());
   }
 }

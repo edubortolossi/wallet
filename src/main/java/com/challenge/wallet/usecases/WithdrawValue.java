@@ -17,7 +17,7 @@ public class WithdrawValue {
 
   private final AccountDataGateway accountDataGateway;
 
-  private final PublishHistoryMessage publishHistoryMessage;
+  private final PublishHistoricMessage publishHistoricMessage;
 
   private final JsonUtils jsonUtils;
 
@@ -25,7 +25,7 @@ public class WithdrawValue {
     var accountToWithdraw = getAccount(account.getCpf(), account.getAccountNumber());
     subtractValueToAccount(account, accountToWithdraw);
 
-    publishHistoryMessage.execute(Historic.builder()
+    publishHistoricMessage.execute(Historic.builder()
         .cpf(account.getCpf())
         .accountNumber(account.getAccountNumber())
         .payload(jsonUtils.toJson(account))

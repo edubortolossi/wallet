@@ -18,7 +18,7 @@ public class BillsPayment {
 
   private final AccountDataGateway accountDataGateway;
 
-  private final PublishHistoryMessage publishHistoryMessage;
+  private final PublishHistoricMessage publishHistoricMessage;
 
   private final JsonUtils jsonUtils;
 
@@ -27,7 +27,7 @@ public class BillsPayment {
     sumValueToAccount(payment, accountToDeposit);
     accountDataGateway.save(accountToDeposit);
 
-    publishHistoryMessage.execute(Historic.builder()
+    publishHistoricMessage.execute(Historic.builder()
         .cpf(payment.getCpf())
         .accountNumber(payment.getAccountNumber())
         .payload(jsonUtils.toJson(payment))

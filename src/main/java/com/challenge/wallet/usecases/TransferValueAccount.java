@@ -18,7 +18,7 @@ public class TransferValueAccount {
 
   private final AccountDataGateway accountDataGateway;
 
-  private final PublishHistoryMessage publishHistoryMessage;
+  private final PublishHistoricMessage publishHistoricMessage;
 
   private final JsonUtils jsonUtils;
 
@@ -33,7 +33,7 @@ public class TransferValueAccount {
     accountDataGateway.save(accountFrom);
     accountDataGateway.save(accountTo);
 
-    publishHistoryMessage.execute(Historic.builder()
+    publishHistoricMessage.execute(Historic.builder()
         .cpf(accountFrom.getCpf())
         .accountNumber(accountFrom.getAccountNumber())
         .payload(jsonUtils.toJson(transferValue))
