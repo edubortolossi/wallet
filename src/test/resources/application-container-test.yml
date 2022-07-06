@@ -1,0 +1,29 @@
+spring:
+  data:
+    mongodb:
+      uri: ${MONGODB_URI}
+  kafka:
+    bootstrap-servers: ${BOOTSTRAP_SERVERS}
+    listener:
+      missing-topics-fatal: false
+    consumer:
+      group-id: wallet
+      auto-offset-reset: earliest
+      enableAutoCommit: true
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      bootstrap-servers: ${spring.kafka.bootstrap-servers}
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    topics:
+      transferValueBroadcast: challenge.wallet.transfer.input
+      depositValueBroadcast: challenge.wallet.deposit.input
+      paymentBroadcast: challenge.wallet.payment.input
+      historicBroadcast: challenge.wallet.historic.input
+
+trace:
+  exporter:
+    logging.enabled: true
+    mongodb.enabled: true
+    kafka.enabled: false

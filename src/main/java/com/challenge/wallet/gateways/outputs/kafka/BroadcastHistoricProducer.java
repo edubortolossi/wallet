@@ -22,7 +22,7 @@ public class BroadcastHistoricProducer {
 
   public void send(final Historic historic) {
     final var message = jsonUtils.toJson(historic);
-    final var topic = topicProperties.getHistoryBroadcast();
+    final var topic = topicProperties.getHistoricBroadcast();
     final var partitionKey = historic.getCpf()+"_"+ historic.getAccountNumber();
 
     kafkaTemplate
@@ -36,7 +36,7 @@ public class BroadcastHistoricProducer {
     return result ->
         log.debug(
             "Message sent to topic: {} , key: {}, message: {}",
-            topicProperties.getHistoryBroadcast(),
+            topicProperties.getHistoricBroadcast(),
             key,
             message);
   }
@@ -45,7 +45,7 @@ public class BroadcastHistoricProducer {
     return ex -> {
       log.error(
           "Error sent to topic: {} , key: {}, message: {}",
-          topicProperties.getHistoryBroadcast(),
+          topicProperties.getHistoricBroadcast(),
           key,
           message);
     };

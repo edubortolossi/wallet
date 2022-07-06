@@ -24,10 +24,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/historic")
 public class HistoricController {
 
-  private final SaveUser saveUser;
-
-  private final DeleteUser deleteUser;
-
   private final FindAllHistoric findAllHistoric;
 
   private final FindHistoricByCpfAndAccount findHistoricByCpfAndAccount;

@@ -23,7 +23,7 @@ public class BroadcastHistoryListener {
   private final ProcessHistoric processHistoric;
 
   @KafkaListener(
-      topics = "${spring.kafka.topics.historyBroadcast}",
+      topics = "${spring.kafka.topics.historicBroadcast}",
       containerFactory = "kafkaListenerContainerFactory")
   public void listener(
       @Payload final String message,
@@ -32,7 +32,7 @@ public class BroadcastHistoryListener {
       @Header(KafkaHeaders.OFFSET) final String offset) {
     log.debug(
         "Message received from topic {} partitionId {} offset {} key {} message {}",
-        topicProperties.getHistoryBroadcast(),
+        topicProperties.getHistoricBroadcast(),
         partitionId,
         offset,
         key,
@@ -43,7 +43,7 @@ public class BroadcastHistoryListener {
     } catch (final Exception ex) {
       log.error(
           "Kafka Listener {} has failed for message {}.",
-          topicProperties.getHistoryBroadcast(),
+          topicProperties.getHistoricBroadcast(),
           message,
           ex);
     }

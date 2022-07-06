@@ -20,4 +20,4 @@ spring:
       transferValueBroadcast: challenge.wallet.transfer.input
       depositValueBroadcast: challenge.wallet.deposit.input
       paymentBroadcast: challenge.wallet.payment.input
-      historyBroadcast: challenge.wallet.history.input
+      historicBroadcast: challenge.wallet.historic.input

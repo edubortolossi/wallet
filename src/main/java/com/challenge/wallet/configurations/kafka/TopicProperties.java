@@ -12,5 +12,5 @@ public class TopicProperties {
     private String transferValueBroadcast;
     private String depositValueBroadcast;
     private String paymentBroadcast;
-    private String historyBroadcast;
+    private String historicBroadcast;
 }

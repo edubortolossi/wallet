@@ -1,0 +1,8 @@
+[
+  {
+    "cpf": "36768246979",
+    "accountNumber": "000121214574",
+    "payload": "{\"cpf\":\"36768246979\",\"accountNumber\":\"000121214574\",\"value\":50}",
+    "operation": "DEPOSIT"
+  }
+]
