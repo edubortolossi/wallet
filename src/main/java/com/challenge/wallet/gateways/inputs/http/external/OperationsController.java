@@ -29,7 +29,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class OperationsController {
   private final PublishTransferMessage publishTransferMessage;
   private final PublishDepositMessage publishDepositMessage;
-
   private final PublishPaymentMessage publishPaymentMessage;
 
   public final WithdrawValue withdrawValue;

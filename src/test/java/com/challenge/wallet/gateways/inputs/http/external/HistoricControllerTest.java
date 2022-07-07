@@ -42,7 +42,6 @@ public class HistoricControllerTest extends TestContainerSupport {
   private HttpCaller httpCaller;
 
   private static final String FOLDER_TEST_PATH = "container-tests/historic-controller";
-  private static final String HISTORIC_REQUEST_FILENAME = "historic-request.json";
   private static final String HISTORIC_DOCUMENT_FILENAME = "historic-document.json";
   private static final String HISTORIC_EXPECTED_RESPONSE_FILENAME = "historic-expected-response.json";
 
