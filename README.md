@@ -17,7 +17,4 @@ Utilizei as seguintes tecnologias:
 - MongoDB
 
 ## Como executar
-Subir as seguintes imagens antes de executar o projeto após isso executar o WalletApplication.java
-#### Mongo
-docker run -d -p 27017:27017 -p 28017:28017 -e AUTH=no tutum/mongodb
-#### Kafka
+Executar docker-compose.yaml para o mongodb e kafka
