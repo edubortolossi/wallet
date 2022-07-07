@@ -117,15 +117,6 @@
       <version>${springfox-swagger-ui.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-security</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.security.oauth</groupId>
-      <artifactId>spring-security-oauth2</artifactId>
-      <version>2.5.2.RELEASE</version>
-    </dependency>
-    <dependency>
       <groupId>jakarta.xml.bind</groupId>
       <artifactId>jakarta.xml.bind-api</artifactId>
       <version>2.3.2</version>
@@ -187,14 +178,6 @@
       <scope>test</scope>
     </dependency>
 
-    <!-- Groovy for Test -->
-    <dependency>
-      <groupId>org.codehaus.groovy</groupId>
-      <artifactId>groovy</artifactId>
-      <version>${groovy.version}</version>
-      <scope>test</scope>
-    </dependency>
-
     <!-- For JUnit 4 compatibility -->
     <dependency>
       <groupId>org.junit.vintage</groupId>
@@ -231,42 +214,6 @@
           <failOnNoGitDirectory>
             false
           </failOnNoGitDirectory>
-        </configuration>
-      </plugin>
-      <!-- Mandatory plugins for using Spock -->
-      <plugin>
-        <!-- The gmavenplus plugin is used to compile Groovy code. To learn more
-            about this plugin, visit https://github.com/groovy/GMavenPlus/wiki -->
-        <groupId>org.codehaus.gmavenplus</groupId>
-        <artifactId>gmavenplus-plugin</artifactId>
-        <version>1.12.1</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>compile</goal>
-              <goal>compileTests</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <!-- Optional plugins for using Spock -->
-      <!-- Only required if names of spec classes don't match default Surefire
-          patterns (`*Test` etc.) -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.0.0-M5</version>
-        <configuration>
-          <systemPropertyVariables>
-            <com.athaydes.spockframework.report.outputDir>target/spock
-            </com.athaydes.spockframework.report.outputDir>
-          </systemPropertyVariables>
-          <includes>
-            <include>**/*Spec</include>
-            <include>**/*Test</include>
-          </includes>
-          <!--Nunca remover o argumento jacocoArgLine isso desativa o verify do jacoco-->
-          <argLine>${jacocoArgLine} -Xmx512m</argLine>
         </configuration>
       </plugin>
       <!-- JaCoCo plugin configuration -->
@@ -335,10 +282,10 @@
         <version>1.7.3</version>
         <configuration>
           <targetClasses>
-            <param>com.netshoes.mcintegracatalog.usecases.*</param>
+            <param>com.challenge.wallet.usecases.*</param>
           </targetClasses>
           <targetTests>
-            <param>com.netshoes.mcintegracatalog.usecases.*</param>
+            <param>com.challenge.wallet.usecases.*</param>
           </targetTests>
           <threads>50</threads>
           <mutationThreshold>96</mutationThreshold>

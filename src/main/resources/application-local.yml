@@ -21,3 +21,7 @@ spring:
       depositValueBroadcast: challenge.wallet.deposit.input
       paymentBroadcast: challenge.wallet.payment.input
       historicBroadcast: challenge.wallet.historic.input
+
+security:
+  basic:
+    enabled: false
