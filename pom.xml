@@ -17,8 +17,6 @@
 
   <properties>
     <java.version>15</java.version>
-    <groovy.version>3.0.8</groovy.version>
-    <spock.version>2.0-groovy-3.0</spock.version>
     <junit-jupiter.vintage.version>5.8.2</junit-jupiter.vintage.version>
     <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
     <springfox-swagger-ui.version>2.9.2</springfox-swagger-ui.version>
